@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Ricci.DEV"/>
+        <meta name="keywords" content="Ricci.DEV"/>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+        <link rel="stylesheet" href="{% static 'base/css/index.css' %}"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"/>
+        {% block head %}
+        {% endblock head %}
+    </head>
+    <body>
+        {% include 'partials/main-nav.html' %}
+            
+        {% block body %}
+        {% endblock body %}
+
+        <footer>
+            {% include 'partials/footer.html' %}
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
