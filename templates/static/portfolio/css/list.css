@@ -1,0 +1,20 @@
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    justify-content: center;
+    padding: 1.25rem 0;
+}
+
+.list-item {
+    max-width: 21.25rem;
+    height: fit-content;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, .2);
+    background-color: #fff;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.list-description {
+    padding: 1.25rem;
+}

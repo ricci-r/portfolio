@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Ricci.DEV | Potfolio 
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/list.css' %}">    
+{% endblock head %}
+
+
+{% block body %}
+<div class="container">
+    <div class="list-container">
+        <div class="list-item">
+            <picture>
+                <img src="https://dummyimage.com/340x300.png" alt="" srcset="">
+            </picture>
+            <div class="list-description">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsa non modi quam earum, maxime atque repudiandae numquam voluptate praesentium hic esse molestiae neque nesciunt culpa temporibus, quia fuga quibusdam!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
