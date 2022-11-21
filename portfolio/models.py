@@ -2,6 +2,20 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+class Technology(models.Model):
+    """Model definition for Technology."""
+
+    name = models.CharField(max_length=100)
+    class Meta:
+        """Meta definition for Technology."""
+
+        verbose_name = 'Technology'
+        verbose_name_plural = 'Technologies'
+
+    def __str__(self):
+        """Unicode representation of Technology."""
+        return self.name
+
 class Portfolio(models.Model):
     """Model definition for Portfolio."""
 
@@ -11,6 +25,7 @@ class Portfolio(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
+    technology = models.ManyToManyField(Technology)
     cover = models.ImageField(
         upload_to='portfolio/covers/%Y/%m/%d/',
         default='portfolio/covers/default.jpg'
@@ -44,4 +59,5 @@ class Category(models.Model):
 
     def __str__(self):
         """Unicode representation of Category."""
+
         return self.name

@@ -2,25 +2,33 @@
 {% load static %}
 
 {% block title %}
-    Ricci.DEV | Potfolio 
+Ricci.DEV | Potfolio
 {% endblock title %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/list.css' %}">    
+<link rel="stylesheet" href="{% static 'portfolio/css/list.css' %}">
 {% endblock head %}
 
 
 {% block body %}
 <div class="container">
     <div class="list-container">
+        {% for portfolio in portfolios %}
         <div class="list-item">
-            <picture>
-                <img src="https://dummyimage.com/340x300.png" alt="" srcset="">
-            </picture>
-            <div class="list-description">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsa non modi quam earum, maxime atque repudiandae numquam voluptate praesentium hic esse molestiae neque nesciunt culpa temporibus, quia fuga quibusdam!</p>
+            <div class="list-cover">
+                <picture>
+                    <img src="{{ portfolio.cover.url }}" alt="{{ portfolio.title }}">
+                </picture>
+            </div>
+            <div class="list-body">
+                <div class="list-description">
+                    <h3 class="title">{{ portfolio.title }}</h3>
+                    <p>{{ portfolio.description }}</p>
+                    <a role="button" rel="noopner norefer" title="Quero conhecer mais: {{portfolio.title}}" class="btn btn-light btn-sm" href="{% url 'portfolio:detail' portfolio.id %}">Quero conhecer</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}
