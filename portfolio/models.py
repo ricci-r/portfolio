@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Technology(models.Model):
@@ -56,6 +57,9 @@ class Category(models.Model):
 
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
+
+    def slug(self):
+        return slugify(self.name)
 
     def __str__(self):
         """Unicode representation of Category."""

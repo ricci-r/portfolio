@@ -20,8 +20,8 @@ def list(request):
 
     return render(request, 'portfolio/list.html', context)
 
-def detail(request, detail_id):
-    portfolio = get_object_or_404(Portfolio, id=detail_id)
+def detail(request, slug):
+    portfolio = get_object_or_404(Portfolio, slug=slug)
     tech = Technology.objects.all()
 
     context = {

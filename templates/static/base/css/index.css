@@ -1,10 +1,18 @@
-
-
 body {
     background-color: #C6C6C6 !important;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 }
 
 .bg-nav {
     background-color: #3B0032 !important;
     padding: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
 }

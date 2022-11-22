@@ -24,7 +24,7 @@ Ricci.DEV | Potfolio
                 <div class="list-description">
                     <h3 class="title">{{ portfolio.title }}</h3>
                     <p>{{ portfolio.description }}</p>
-                    <a role="button" rel="noopner norefer" title="Quero conhecer mais: {{portfolio.title}}" class="btn btn-light btn-sm" href="{% url 'portfolio:detail' portfolio.id %}">Quero conhecer</a>
+                    <a role="button" rel="noopner norefer" title="Quero conhecer mais: {{portfolio.title}}" class="btn btn-light btn-sm" href="{% url 'portfolio:detail' portfolio.slug %}">Quero conhecer</a>
                 </div>
             </div>
         </div>
