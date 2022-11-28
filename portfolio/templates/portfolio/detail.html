@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Ricci.DEV | Potfolio
+Ricci.DEV | {{ portfolio.title }}
 {% endblock title %}
 
 {% block head %}
@@ -11,27 +11,29 @@ Ricci.DEV | Potfolio
 
 
 {% block body %}
-<div class="container">
-    <div class="list-container">
-        <div class="list-item detail">
-            <div class="list-cover">
-                <picture>
-                    <img src="{{ portfolio.cover.url }}" alt="{{ portfolio.title }}">
-                </picture>
+<div class="list-container">
+    <div class="list-item">
+        <div class="list-cover">
+            <picture>
+                <img src="{{ portfolio.cover.url }}" alt="{{ portfolio.title }}">
+            </picture>
+        </div>
+        <div class="list-body">
+            <h3 class="title">{{ portfolio.title }}</h3>
+            <div class="list-description">
+                <p>{{ portfolio.description }}</p>
             </div>
-            <div class="list-body">
-                <div class="list-description">
-                    <h3 class="title">{{ portfolio.title }}</h3>
-                    <p>{{ portfolio.description }}</p>
+            <div class="list-category">
+                <h5 class="title">Tecnologia utilizada:</h5>
+                    {% for tech in tech %}
+                    <p>{{ tech.name }}</p>
+                    {% endfor %}
+                <div class="list-info mb-4">
+                    <span class="list-author">Autor: {{ portfolio.author|upper }}</span>
+                    <span class="list-date">Criado em: {{ portfolio.created_at|date:'d/m/Y' }}</span>
                 </div>
-                <div class="list-category">
-                    <h5 class="title">Tecnologia utilizada:</h5>
-                    <div class="list-container">
-                        {% for tech in tech  %}
-                            <p>{{ tech.name }}</p>
-                        {% endfor %}
-                    </div>  
-                </div>
+                <a role="button" rel="noopner norefer" title="voltar" class="btn btn-dark btn-sm"
+                    href="{% url 'portfolio:list' %}">Voltar</a>
             </div>
         </div>
     </div>
