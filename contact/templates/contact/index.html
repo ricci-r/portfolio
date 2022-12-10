@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Ricci.DEV | Contact
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contact/css/forms.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Enviar">
+        </form>
+        {% include 'partials/messages.html' %}  
+    </div>
+{% endblock body %}
+    
+
+
+    
