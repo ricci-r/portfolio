@@ -6,7 +6,7 @@ class Contact(models.Model):
 
     email = models.EmailField()
     subject = models.CharField(max_length=255)
-    message = models.TextField()
+    message = models.TextField(max_length=255)
 
     class Meta:
         """Meta definition for Contact."""

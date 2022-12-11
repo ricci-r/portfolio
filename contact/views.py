@@ -9,25 +9,29 @@ from .forms import ContactForm
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST or None)
         if form.is_valid():
             form.save()
-            subject = "Website"
+            subject = 'Gostaria de falar sobre'
             body = {
                 'emal': form.cleaned_data['email'],
                 'message': form.cleaned_data['message'],
             }
             message = "\n".join(body.values())
+
             try:
                 send_mail(subject, message, settings.CONTACT_EMAIL , [settings.CONTACT_EMAIL])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, 'Mensagem enviada com sucesso')
             return redirect("contact:contact")
+            
         messages.error(request, 'Error: Mensagem não enviada.')
 
     form = ContactForm()
+
     context = {
-        'form': form
+        'form': ContactForm()
     }
+
     return render(request, 'contact/index.html', context)
