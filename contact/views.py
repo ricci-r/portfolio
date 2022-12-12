@@ -14,6 +14,8 @@ def contact(request):
             form.save()
             subject = 'Gostaria de falar sobre'
             body = {
+                'name':form.cleaned_data['name'],
+                'last_name':form.cleaned_data['last_name'],
                 'emal': form.cleaned_data['email'],
                 'message': form.cleaned_data['message'],
             }

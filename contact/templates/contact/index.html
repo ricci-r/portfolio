@@ -11,13 +11,18 @@
 {% endblock head %}
 
 {% block body %}
-   <div class="container-form">
-        {% include 'partials/messages.html' %}  
-        {% csrf_token %}
-        {% crispy form %}
-   </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md p-4">
+            {% include 'partials/messages.html' %} 
+        </div>
+    </div> 
+</div>
+<div class="container-form">
+    {% crispy form %}
+</div>
 {% endblock body %}
-    
 
-
-    
+{% block script %}
+    <script src="{% static 'contact/js/messages/alert.js' %}"></script>
+{% endblock script %}    
