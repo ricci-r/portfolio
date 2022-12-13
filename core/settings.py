@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-xss*5z-4sv!5r17!#bqedb1*+g-)r%2w+)@)8%n+rg$#y#0ji8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -147,7 +147,6 @@ MESSAGE_TAGS = {
  }
 
 # Email
-CONTACT_EMAIL = config('EMAIL_HOST_USER')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')

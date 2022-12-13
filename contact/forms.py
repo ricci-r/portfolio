@@ -42,7 +42,7 @@ class ContactForm(forms.ModelForm):
     email = forms.CharField(
         label="E-mail"
     )
-    message = forms.Textarea()
+    message = forms.CharField()
 
     class Meta:
         """Meta definition for Contactform."""

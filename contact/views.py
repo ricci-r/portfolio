@@ -9,7 +9,7 @@ from .forms import ContactForm
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST or None)
+        form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             subject = 'Gostaria de falar sobre'
@@ -22,7 +22,7 @@ def contact(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, settings.CONTACT_EMAIL , [settings.CONTACT_EMAIL])
+                send_mail(subject, message, settings.EMAIL_HOST_USER , [settings.EMAIL_HOST_USER])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, 'Mensagem enviada com sucesso')

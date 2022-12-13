@@ -9,8 +9,6 @@ class Contact(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=255)
     message = models.TextField(max_length=255)
-    created_at = models.DateTimeField(auto_created=True, null=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         """Meta definition for Contact."""
